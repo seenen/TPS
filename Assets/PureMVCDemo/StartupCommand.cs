@@ -6,7 +6,7 @@ using PureMVC.Patterns.Command;
 public class StartupCommand : MacroCommand {
     protected override void InitializeMacroCommand ()
     {
-        AddSubCommand (typeof(ModelPreCommand));
+        AddSubCommand (() => new ModelPreCommand());
     }
 
 }

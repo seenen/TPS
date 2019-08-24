@@ -13,16 +13,21 @@ public class AppFacade : Facade,IFacade {
     {
         get{ 
             if (_instance == null) {
-                _instance = new AppFacade ();
+                _instance = new AppFacade ("AppFacade");
             }
             return _instance;
         }
     }
+
+    public AppFacade(string key) : base(key)
+    {
+
+    }
     protected override void InitializeController ()
     {
         base.InitializeController ();
-        RegisterCommand (STARTUP, typeof(StartupCommand));
-        RegisterCommand (NotiConst.S_LOGIN, typeof(LoginCommand));
+        RegisterCommand (STARTUP, () => new StartupCommand());
+        RegisterCommand (NotiConst.S_LOGIN, () => new LoginCommand());
     }
     public void startup()
     {

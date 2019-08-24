@@ -9,13 +9,14 @@ public class LoginCommand : SimpleCommand {
     {
         Debug.Log ("LoginCommand");
         object obj = notification.Body;
-        LoginProxy loginProxy;
+        LoginProxy loginProxy; 
         loginProxy = Facade.RetrieveProxy (LoginProxy.NAME) as LoginProxy;
         string name = notification.Name;
-        switch (name) {
-        case NotiConst.S_LOGIN:
+
+
+        if (NotiConst.S_LOGIN == name)
+        {
             loginProxy.sendLogin (obj);
-            break;
         }
     }
 }

@@ -26,10 +26,9 @@ public class LoginViewMediator : Mediator,IMediator {
     {
         string name = notification.Name;
         object vo = notification.Body;
-        switch (name) {
-        case NotiConst.R_LOGIN:
-                (this.ViewComponent as LoginView).receiveMessage (vo);
-                break;
+        if ( NotiConst.R_LOGIN == name)
+        {
+            (this.ViewComponent as LoginView).receiveMessage (vo);
         }
     }
 }

@@ -13,4 +13,9 @@ void Start () {
 void OnDestory(){
         AppFacade.getInstance.RemoveMediator (LoginViewMediator.NAME);
     }
+
+    public void receiveMessage(object o)
+    {
+
+    }
 }
